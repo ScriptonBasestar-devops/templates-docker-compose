@@ -1,0 +1,17 @@
+version: '<% DOCKER_COMPOSE_VERSION %>'
+ 
+services:
+  db:
+    image: mysql:5.7
+    container_name: db
+    environment:
+      MYSQL_ROOT_PASSWORD: password 
+      MYSQL_DATABASE: appdb 
+      MYSQL_USER: dbuser
+      MYSQL_PASSWORD: dbpass 
+    ports:
+      - '3306:3306'
+    volumes:
+      - dbdata:/var/lib/mysql
+volumes:
+  dbdata:
